@@ -1,0 +1,591 @@
+@import url(font-awesome.min.css);
+
+*, *::after, *::before {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'PT Sans', sans-serif;
+}
+:root{
+    --background: #4c266A;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+header{
+    background: var(--background);
+    text-align: center;
+    position:fixed;
+    width:100%;
+    box-shadow: 0px 5px 10px 0px #222;
+    z-index: 100;
+}
+
+.container{
+    width:80%;
+    margin:0 auto;
+    padding: 2em 0 2em 0;
+}
+
+.logo{
+    width:45%;
+    padding:1em;
+}
+
+.nav-toggle{
+    display:none;
+}
+
+.nav-toggle-label{
+    position:absolute;
+    top:0;
+    right:0;
+    margin-right:1em;   
+    height: 100%;
+    display:flex;
+    align-items: center; 
+}
+
+.barra{
+    font-size: 38px;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+nav{
+    position:absolute;
+    text-align: right;
+    top:100%;
+    right:0;
+    background: var(--background);
+    width:100%;
+    transform:scale(1, 0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
+}
+
+nav ul{
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+
+nav li{
+    margin-bottom: 1em;
+    margin-right: 1em;
+}
+
+nav a{
+    color:#fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+}
+
+nav a:hover{
+    color:#ef8b00;
+}
+
+.nav-toggle:checked ~ nav {
+    transform: scale(1, 1);
+}
+
+.nav-toggle:checked ~ nav a{
+    opacity:1;
+    transition: opacity 250ms ease-in-out 250ms;
+}
+
+header.scrolled{
+  background-color: #ea514d !important;
+  transition: background-color 200ms linear;
+}
+
+/*Hero image*/
+
+.hero {
+    height: 86vh;
+    min-height: 500px;
+    background-image: url("../assets/img/hero_mobile.png");
+    background-size: cover;
+    background-position: center;
+    object-fit: contain;
+}
+
+.intro{
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr;
+    align-items: center;
+    margin: -110px auto 20px auto;
+    background-color: #84c494;
+}
+
+.intro-text{
+    width: 100%;
+    display:block;
+    background-color: #84c494;
+    padding: 1em;
+    font-size: 14px;
+    font-weight: 400;
+}
+.intro-video{
+    width:100%;
+    padding:1em;
+    display:block;
+    font-size: 14px;
+}
+
+/*==========*/
+
+.video-estudiante{
+    width:100%;
+    border-radius: 30px;
+}
+
+/*Cronograma*/
+
+.cronograma{
+    
+    color: #fff;
+    background-color: #4c266A;
+    padding: 0.5em;
+    border-radius: 2px;
+    font-size: 1em;
+    box-shadow: rgb(255 255 255 / 60%) 1px 1px 0, rgb(0 0 0 / 30%) 4px 4px 0;
+}
+
+.actividad{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1em;
+    padding: 1em;
+}
+/*============*/
+
+/*Grid empresas*/
+.grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 30px;
+    margin-top: 2em;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+  }
+/*===============*/
+/*Modals*/
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 10;
+    /* Sit on top */
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.85);
+    /* Black w/ opacity */
+}
+
+
+/* Modal Content/Box */
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    min-height: 400px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+}
+
+.modal-button{
+    width:100%;
+}
+.modal-text {
+    padding: 20px;
+}
+
+
+/* Add Animation */
+
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+
+/* The Close Button */
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 78px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: .5em;
+    background-color:#84c494;
+    color: white;
+}
+.modal-header h2{
+    margin-top:0px;
+}
+
+.modal-body {
+    padding: 1em 1em;
+    line-height: 1.5em;
+}
+
+.floating-imgs {
+        position: absolute;
+        z-index:0;
+        }
+
+.front-one {
+        right: 10em;
+        }
+
+     .front-two{
+        left: 2.4em;
+    
+    }
+    .front-three{
+        right:5em;
+    }
+/*==============*/
+.parallax{
+    background-attachment: fixed;
+    background-image:url(../assets/img/parallax_mobile.png);
+    background-position: center center;
+    background-size: cover;
+    height: 500px;
+}
+
+.parallax-1{
+    background-attachment: fixed;
+    background-image:url(../assets/img/parallax_mobile.png);
+    background-position: center center;
+    background-size: cover;
+    height: 500px;
+}
+
+.videos-grid{
+    display:grid;
+    grid-template-columns: 100%;
+}
+
+.video-centered{
+    display:flex;
+    justify-content: center;
+    margin: 2em 0 2em 0;
+}
+
+.image-grid{
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr;
+    margin-top: 2em;
+}
+
+.image-fit{
+    width:100%;
+    display:block;
+}
+
+.image-grid a img{
+    width:100%;
+    border: 4px solid #ef8b00;
+}
+
+.caption-galeria{
+    color: black;
+    padding: 1.5em;
+    font-weight: 300;
+    background-color: #ef8b00;
+    margin: -5px 0 0;
+}
+
+.overlay-gallery{
+    background-image: linear-gradient(#1095c1,#1095c1);
+    background-size: 0 100%;
+    background-repeat: no-repeat;
+    transition: .4s;
+}
+
+/*======FOOTER==========*/
+footer{
+    display:block;
+    font-size:100%;
+  }
+  
+#footer {
+    list-style: none;
+    padding: 8em 0 6em 0;
+    background: #f6f6f6;
+    color: #aaa;
+    text-align: center;
+}
+  
+  #footer a {
+    -moz-transition: color 0.2s ease-in-out;
+    -webkit-transition: color 0.2s ease-in-out;
+    -ms-transition: color 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out;
+    color: #aaa;
+    text-decoration: none;
+  }
+  
+    #footer a:active, #footer a:hover {
+        color: #666;
+    }
+  
+  #footer .icons {
+    font-size: 1em;
+  }
+  
+    #footer .icons li {
+        padding-right: 0;
+    }
+  
+        #footer .icons li:last-child {
+            padding-right: 0;
+        }
+  
+  #footer .copyright {
+    margin: 2em 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+    #footer .copyright li {
+        border-left: solid 1px rgba(144, 144, 144, 0.25);
+        display: inline-block;
+        list-style: none;
+        margin-left: 1.5em;
+        padding-left: 1.5em;
+    }
+  
+        #footer .copyright li:first-child {
+            border-left: 0;
+            margin-left: 0;
+            padding-left: 0;
+        }
+  
+        .icon {
+            text-decoration: none;
+            border-bottom: none;
+            position: relative;
+            }
+  
+  .icon:before {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-transform: none !important;
+  }
+  
+  .icon > .label {
+    display: none;
+  }
+  
+        
+  ul.icons {
+    cursor: default;
+    list-style: none;
+    padding-left: 0;
+  }
+  
+    ul.icons li {
+        display: inline-block;
+        padding: 0 1em 0 0;
+    }
+  
+        ul.icons li:last-child {
+            padding-right: 0;
+        }
+  
+        ul.icons li .icon:before {
+            font-size: 2em;
+        }
+  
+
+/*========*/
+
+/*======DESKTOP VIEW==============================================================================================*/
+
+@media screen and (min-width: 979px){
+    .nav-toggle-label{
+        display:none;
+    }
+
+    header{
+        display:grid;
+        grid-template-columns: 200px minmax(400px, 2fr) minmax(400px, 3fr) 1fr;
+    }
+
+    .logo{
+        grid-column: 2 / 3;
+        width:35%;
+    }
+
+    .titulo-grande{
+      font-size: 2.5rem;
+      color: #ea514d;
+      font-weight: 500;
+    }
+
+    nav{
+        all: unset;
+        grid-column: 3 / 4;
+        display:flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    nav a {
+        opacity: 1;
+        position:relative;
+    }
+
+    nav a::before{
+        content:'';
+        display: block;
+        height: 4px;
+        background: #ef8b00;
+        position:absolute;
+        bottom: -.75em;
+        left:0;
+        right:0;
+        transform: scale(0,1);
+        transform-origin: right;
+        transition: transform ease-in-out 250ms
+    }
+
+    nav a:hover::before{
+        transform: scale(1,1);
+    }
+
+    nav ul{
+        display:flex; 
+    }
+    
+    nav li{
+        margin-right: 3em;
+        margin-bottom: 0;
+    }
+    .hero {
+        height: 86vh;
+        min-height: 500px;
+        background-image: url("../assets/img/hero_desktop.png");
+        background-size: cover;
+        background-position: center;
+        object-fit: contain;
+    }
+    .intro-text{
+        width: 80%;
+        padding: 2em;
+        font-size: 1.2em;
+        font-weight: 400;
+    }
+    .intro{
+        display: flex;
+        width:55%;
+        border-radius: 30px;;
+    }
+    
+    .parallax{
+        background-attachment: fixed;
+        background-image:url(../assets/img/parallax_desktop.png);
+        background-position: center center;
+        background-size: cover;
+        height: 500px;
+    }
+    .parallax-1{
+        background-attachment: fixed;
+        background-image:url(../assets/img/parallax_desktop1.png);
+        background-position: center center;
+        background-size: cover;
+        height: 500px;
+    }
+    #footer .icons li {
+        padding-right: 2.5em;
+    }
+    .videos-grid{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        align-items: center;
+    }
+    .video-centered{
+        margin:2em;
+    }
+    .image-fit{
+        width:100%;
+        display:block;
+    }
+    .image-grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
+    }
+    .cronograma{
+        line-height: 2.5em;
+        font-size: 1.2em;
+    }
+    .actividad{
+        display: grid;
+        grid-template-columns: auto 1fr 1fr;
+        grid-gap: 1em;
+        padding: 1em;
+    }
+    
+}
